@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="style1.css"?>
+<students>
+    <student id="24001026">
+        <name>Prashobh Nair</name>
+        <age>18</age>
+        <course>BTech CSE</course>
+        <subjects>
+            <subject>
+                <name>Mathematics</name>
+                <marks>85</marks>
+            </subject>
+            <subject>
+                <name>Physics</name>
+                <marks>90</marks>
+            </subject>
+        </subjects>
+    </student>
+    <student id="24000658">
+        <name>Vikash Patanvadia</name>
+        <age>95</age>
+        <course>BTech IT</course>
+        <subjects>
+            <subject>
+                <name>Mathematics</name>
+                <marks>88</marks>
+            </subject>
+            <subject>
+                <name>Data Science</name>
+                <marks>92</marks>
+            </subject>
+        </subjects>
+    </student>
+</students>

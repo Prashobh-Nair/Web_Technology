@@ -1,0 +1,78 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+students {
+    display: grid;
+    gap: 20px;
+}
+
+student {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+student:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+student > name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+student > age,
+student > course {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+subjects {
+    margin-top: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+}
+
+subjects > subject {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+subject:last-child {
+    border-bottom: none;
+}
+
+subject > name {
+    color: #555;
+    font-weight: bold;
+}
+
+subject > marks {
+    text-align: right;
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* Pseudo-Class Styling */
+student:hover > name {
+    color: #007bff;
+}
+
+/* XPath-like Selectors */
+student:nth-child(odd) {
+    background-color: #fafafa;
+}
+
+student:nth-child(even) {
+    background-color: #fefefe;
+}
