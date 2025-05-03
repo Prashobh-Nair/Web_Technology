@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Number Validation</title>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            font-size: 24px;
+        }
+
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+            display: inline-block;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 10px;
+            font-size: 1.2em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+
+    <script>
+        function validateNumber(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            let contactNumber = document.getElementById("contact").value;
+            let message = document.getElementById("message");
+            let regex = /^[6-9]\d{9}$/; // Regular Expression for validation
+
+            if (regex.test(contactNumber)) {
+                message.style.color = "green";
+                message.innerText = "Valid number! Redirecting...";
+                
+                // Redirect to welcome.html after 1 second
+                setTimeout(function () {
+                    window.location.href = "welcome.html";
+                }, 1000);
+            } else {
+                message.style.color = "red";
+                message.innerText = "❌ Invalid contact number! Please enter a valid 10-digit number.";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Contact Number Validation</h1>
+    </header>
+
+    <div class="container">
+        <h2>Enter Your 10-digit Mobile Number:</h2>
+        <form onsubmit="validateNumber(event)">
+            <input type="text" id="contact" maxlength="10" placeholder="Enter Number" required>
+            <button type="submit">Submit</button>
+        </form>
+        <p class="message" id="message"></p>
+    </div>
+
+</body>
+</html>
