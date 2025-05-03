@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="students.css"?>
+<students>
+    <student>
+        <name>zeel</name>
+        <age>19</age>
+        <course>Computer Science</course>
+        <email>zeel1234r@gmail.com</email>
+    </student>
+    <student>
+        <name>shlok</name>
+        <age>22</age>
+        <course>Information Technology</course>
+        <email>shlok12.hotmail.com</email>
+    </student>
+    <student>
+        <name>Rohit</name>
+        <age>37</age>
+        <course>BCOM</course>
+        <email>rohit0264@gmail.com</email>
+    </student>
+</students>
