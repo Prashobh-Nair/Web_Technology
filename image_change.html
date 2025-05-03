@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Change Image Source</title>
+    <script>
+        function changeImageOnClick() {
+            document.getElementById("myImage").src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSgRXs_JmJx8DAFhAVA_Gh2LJXmx7eAYTRCg&s";
+        }
+        
+        function changeImageOnDblClick() {
+            document.getElementById("myImage").src = "https://cdn.pixabay.com/photo/2019/07/06/12/51/palace-4320416_1280.jpg";
+        }
+        
+        function changeImageOnMouseOver() {
+            document.getElementById("myImage").src = "https://cdn.pixabay.com/photo/2018/08/04/11/30/draw-3583548_1280.png";
+        }
+        
+        function changeImageOnMouseOut() {
+            document.getElementById("myImage").src = "https://cdn.pixabay.com/photo/2018/10/28/10/04/background-image-3778266_1280.jpg";
+        }
+    </script>
+</head>
+<body>
+    <h2>Image Change Events</h2>
+    <img id="myImage" src="https://i.ibb.co/C3Czy6Cy/Whats-App-Image-2025-03-18-at-18-25-03.jpgb c c" width="200" height="200"
+         onclick="changeImageOnClick()"
+         ondblclick="changeImageOnDblClick()"
+         onmouseover="changeImageOnMouseOver()"
+         onmouseout="changeImageOnMouseOut()">
+</body>
+</html>
