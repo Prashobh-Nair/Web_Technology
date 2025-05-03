@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: aqua;
+}
+div{
+    width: px;
+    margin: 40px auto;
+    height: 100px auto;
+    background-color: aquamarine;
+    border-radius: 10px;
+    box-shadow: 10px 0px 15px black;
+}
+ul {
+    list-style-type: none;
+}
+li {
+    cursor: pointer;
+}
