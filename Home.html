@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>GreenLeaf Nursery - Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="/static/Home.css">
+</head>
+<body>
+
+<div class="auth-buttons">
+    <a id="login-button-home"   href="#">Login</a>
+    <a id="register-button-home" href="#">Register</a>
+</div>
+
+<header>
+    <h1>GreenLeaf Nursery</h1>
+    <p>Your one-stop destination for indoor & outdoor plants, pots, and gardening tips!</p>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/shop/">Shop</a></li>
+        <li><a href="/cart">Cart</a></li>
+        <li><a href="/contact-us/">Contact</a></li>
+    </ul>
+</nav>
+
+<section>
+    <h2>Welcome to GreenLeaf Nursery</h2>
+<p>At GreenLeaf Nursery, we are passionate about bringing nature closer to you. We offer a wide variety of high-quality plants, gardening tools, and accessories to help you transform any space into a lush, green haven. Whether you're a seasoned gardener or just starting your plant journey, our products and expert advice will support you every step of the way. Let us help you create a refreshing and vibrant environment at your home, office, or garden.</p>
+
+</section>
+
+<section>
+    <h2>Featured Plants</h2>
+    <div class="featured-plants">
+        <figure class="plant">
+            <img src="https://nurserylive.com/cdn/shop/products/nurserylive-g-areca-palm-plant_512x512.jpg?v=1636456218" alt="Areca Palm indoor plant" />
+            <figcaption>
+                <h3>Areca Palm</h3>
+                <p>Elegant, low-maintenance indoor plant that purifies air and adds a tropical vibe to your room.</p>
+            </figcaption>
+        </figure>
+
+        <figure class="plant">
+            <img src="https://buygreen.in/wp-content/uploads/2022/09/bird-nest-snake-plant.gif" alt="Snake Plant air purifying" />
+            <figcaption>
+                <h3>Snake Plant</h3>
+                <p>Hardy and stylish. Excellent for bedrooms. Tolerates low light and cleans air effectively.</p>
+            </figcaption>
+        </figure>
+
+        <figure class="plant">
+            <img src="https://mainaamgarden.com/cdn/shop/products/6666_1024x1024.jpg?v=1638654564" alt="Peace Lily indoor flower plant" />
+            <figcaption>
+                <h3>Peace Lily</h3>
+                <p>Beautiful white flowers and great air purifier. Perfect for shady spots in your home.</p>
+            </figcaption>
+        </figure>
+
+        <figure class="plant">
+            <img src="https://nurserylive.com/cdn/shop/products/nurserylive-g-plants-3-layer-lucky-bamboo-plant-in-a-bowl-with-pebbles-701159.jpg?v=1679748420" alt="Lucky Bamboo Desk Plant" />
+            <figcaption>
+                <h3>Bamboo Plant</h3>
+                <p>Symbol of luck and prosperity. Ideal for desks and homes with moderate sunlight.</p>
+            </figcaption>
+        </figure>
+
+        <figure class="plant">
+            <img src="https://theaffordableorganicstore.com/wp-content/uploads/2022/01/ZZ-Plant.webp" alt="ZZ Plant low maintenance" />
+            <figcaption>
+                <h3>ZZ Plant</h3>
+                <p>Glossy leaves, drought-tolerant, and thrives in low light. Great for busy plant lovers.</p>
+            </figcaption>
+        </figure>
+
+        <figure class="plant">
+            <img src="https://plantzone.in/wp-content/uploads/2024/09/9-1.jpg" alt="Monstera Deliciosa Tropical Leaf" />
+            <figcaption>
+                <h3>Monstera Deliciosa</h3>
+                <p>Popular for its iconic leaves. A bold, tropical addition to modern homes and offices.</p>
+            </figcaption>
+        </figure>
+    </div>
+</section>
+
+<section>
+    <h2>Our Services</h2>
+    <ul>
+        <li>🌱 Plant Delivery across India</li>
+        <li>🧤 Gardening Kits & Soil Mix</li>
+        <li>🌿 Customized Potting Solutions</li>
+        <li>💡 Plant Care Consultation</li>
+        <li>🏡 Interior Plant Design</li>
+        <li>🎁 Corporate Gifting</li>
+        <li>🌼 Event Plantscaping</li>
+        <li>📚 Workshops & Classes</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Customer Testimonials</h2>
+    <p>"GreenLeaf has transformed my balcony into a mini jungle! Great service and lovely plants!" – <b>Rina S.</b></p>
+    <p>"Affordable and healthy plants. The plants brightened up our workspace!" – <b>Aditya P.</b></p>
+    <p>"Wide selection and very knowledgeable staff!" – <b>Meera K.</b></p>
+    <p>"I was having trouble keeping my plants alive, but GreenLeaf's guidance helped a lot!" – <b>Rahul G.</b></p>
+</section>
+
+<section>
+    <h2>Join Our Newsletter</h2>
+    <p>Stay updated with plant care tips and seasonal offers. Subscribe and get 10% off your first order!</p>
+    <form onsubmit="alert('Thank you for subscribing our website...')">
+        <label for="email">Enter your email:</label><br />
+        <input type="email" id="email" name="email" placeholder="your@email.com" required />
+        <input type="submit" value="Subscribe" />
+    </form>
+</section>
+
+<footer>
+    <h3>Contact Us</h3>
+    <p>Email: support@greenleafnursery.com</p>
+    <p>Phone: +91 98765 43210</p>
+    <p>Location: 123 Garden Road, Vadodara, Gujarat</p>
+    <p>&copy; 2025 GreenLeaf Nursery. All Rights Reserved.</p>
+</footer>
+
+<div id="login-popup" class="login-popup">
+        <div class="login-content">
+            <span id="close-button" class="close-button">&times;</span>
+            <h2>Login</h2>
+            <input type="text" id="username" placeholder="Username" /><br />
+            <input type="password" id="password" placeholder="Password" /><br />
+            <button id="login-submit-button" onclick="login()">Login</button>
+        </div>
+    </div>
+
+<div id="register-popup" class="register-popup">
+        <div class="register-content">
+            <span id="close-register-button" class="close-button">&times;</span>
+            <h2>Register</h2>
+            <input type="text" id="reg-username" placeholder="Username" /><br />
+            <input type="email" id="reg-email" placeholder="Email" /><br />
+            <input type="password" id="reg-password" placeholder="Password" /><br />
+            <button id="register-submit-button" onclick="register()">Register</button>
+        </div>
+    </div>
+
+<script>
+const loginButtonHome = document.getElementById("login-button-home");
+const registerButtonHome = document.getElementById("register-button-home");
+const loginPopup = document.getElementById("login-popup");
+const registerPopup = document.getElementById("register-popup");
+const closeButton = document.getElementById("close-button");
+const closeRegisterButton = document.getElementById("close-register-button");
+const loginSubmitButton = document.getElementById("login-submit-button");
+const registerSubmitButton = document.getElementById("register-submit-button");
+const authButtonsDiv = document.querySelector(".auth-buttons");
+
+loginButtonHome.addEventListener("click", (e) => {
+    e.preventDefault();
+    loginPopup.style.display = "flex";
+});
+
+registerButtonHome.addEventListener("click", (e) => {
+    e.preventDefault();
+    registerPopup.style.display = "flex";
+});
+
+closeButton.addEventListener("click", () => {
+    loginPopup.style.display = "none";
+});
+
+closeRegisterButton.addEventListener("click", () => {
+    registerPopup.style.display = "none";
+});
+
+window.addEventListener("click", (event) => {
+    if (event.target === loginPopup) {
+        loginPopup.style.display = "none";
+    }
+    if (event.target === registerPopup) {
+        registerPopup.style.display = "none";
+    }
+});
+
+function login() {
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    if (username === "user" && password === "password") {
+        alert("You have successfully logged in");
+        loginPopup.style.display = "none";
+        if (authButtonsDiv) {
+            if (loginButtonHome) authButtonsDiv.removeChild(loginButtonHome);
+            if (registerButtonHome) authButtonsDiv.removeChild(registerButtonHome);
+        }
+    } else {
+        alert("Invalid username or password.");
+    }
+}
+
+function register() {
+    const usernameInput = document.getElementById("reg-username");
+    const emailInput = document.getElementById("reg-email");
+    const passwordInput = document.getElementById("reg-password");
+    const username = usernameInput.value;
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    if (username && email && password) {
+        alert("You have successfully Registered your account");
+        registerPopup.style.display = "none";
+        if (authButtonsDiv) {
+            if (loginButtonHome) authButtonsDiv.removeChild(loginButtonHome);
+            if (registerButtonHome) authButtonsDiv.removeChild(registerButtonHome);
+        }
+    } else {
+        alert("Please enter username, email and password.");
+    }
+}
+</script>
+</body>
+</html>

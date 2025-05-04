@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - GreenLeaf Nursery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/cart.css">
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+        <p>Review and manage your items</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about-us/">About Us</a></li>
+            <li><a href="/shop/">Shop</a></li>
+            <li><a href="/contact-us/">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Items in Your Cart</h2>
+            <div id="cart-items">
+                <p>Your cart is currently empty.</p>
+            </div>
+
+            <div id="cart-summary">
+                <h3>Order Summary</h3>
+                <p>Total items: <span id="total-items">0</span></p>
+                <p>Subtotal: ₹<span id="subtotal">0.00</span></p>
+                <button id="checkout-button">Proceed to Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <h3>Contact Us</h3>
+        <p>Email: support@greenleafnursery.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Location: 123 Garden Road, Vadodara, Gujarat</p>
+        <p>&copy; 2025 GreenLeaf Nursery. All Rights Reserved.</p>
+    </footer>
+
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Checkout</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <label for="card-number">Card Number:</label>
+                <input type="text" id="card-number" placeholder="Enter your card number" maxlength="19">
+                <label for="cvv">CVV:</label>
+                <input type="number" id="cvv" placeholder="Enter CVV" maxlength="3">
+                <label for="otp">OTP:</label>
+                <input type="number" id="otp" placeholder="Enter OTP" maxlength="6">
+            </div>
+            <div class="modal-footer">
+                <button id="confirm-order-button" disabled>Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log("Cart page loaded");
+
+        const cartItemsDiv = document.getElementById('cart-items');
+        const totalItemsSpan = document.getElementById('total-items');
+        const subtotalSpan = document.getElementById('subtotal');
+        const checkoutButton = document.getElementById('checkout-button');
+        const checkoutModal = document.getElementById('checkout-modal');
+        const closeModalButton = document.querySelector('.close-button');
+        const confirmOrderButton = document.getElementById('confirm-order-button');
+        const cardNumberInput = document.getElementById('card-number');
+        const cvvInput = document.getElementById('cvv');
+        const otpInput = document.getElementById('otp');
+
+
+        function displayCart() {
+            let cart = localStorage.getItem('cart');
+            if (cart) {
+                cart = JSON.parse(cart);
+                cartItemsDiv.innerHTML = '';
+
+                let itemCount = 0;
+                let totalPrice = 0;
+
+                if (Object.keys(cart).length === 0) {
+                    cartItemsDiv.innerHTML = '<p>Your cart is currently empty.</p>';
+                    totalItemsSpan.textContent = '0';
+                    subtotalSpan.textContent = '0.00';
+                    checkoutButton.disabled = true;
+                    return;
+                } else {
+                    checkoutButton.disabled = false;
+                }
+
+                for (const itemName in cart) {
+                    if (cart.hasOwnProperty(itemName)) {
+                        const quantity = cart[itemName].quantity;
+                        const price = parseFloat(cart[itemName].price.replace('₹', ''));
+                        const imageUrl = cart[itemName].imageUrl;
+                        const itemTotal = price * quantity;
+
+                        const cartItem = document.createElement('div');
+                        cartItem.classList.add('cart-item');
+                        cartItem.innerHTML = `
+                            <img src="${imageUrl}" alt="${itemName}">
+                            <p>${itemName} - Quantity: ${quantity} - Price: ₹${price.toFixed(2)} - Total: ₹${itemTotal.toFixed(2)}</p>
+                        `;
+                        cartItemsDiv.appendChild(cartItem);
+
+                        itemCount += quantity;
+                        totalPrice += itemTotal;
+                    }
+                }
+
+                totalItemsSpan.textContent = itemCount;
+                subtotalSpan.textContent = totalPrice.toFixed(2);
+            } else {
+                cartItemsDiv.innerHTML = '<p>Your cart is currently empty.</p>';
+                totalItemsSpan.textContent = '0';
+                subtotalSpan.textContent = '0.00';
+                checkoutButton.disabled = true;
+            }
+        }
+
+        checkoutButton.addEventListener('click', () => {
+            checkoutModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            checkoutModal.style.display = 'none';
+            document.body.style.overflow = '';
+            resetModalInputs();
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === checkoutModal) {
+                checkoutModal.style.display = 'none';
+                document.body.style.overflow = '';
+                resetModalInputs();
+            }
+        });
+
+        function validateInputs() {
+            const cardNumber = cardNumberInput.value.trim();
+            const cvv = cvvInput.value.trim();
+            const otp = otpInput.value.trim();
+
+            if (cardNumber.length >= 16 && cvv.length === 3 && otp.length === 6) {
+                confirmOrderButton.disabled = false;
+            } else {
+                confirmOrderButton.disabled = true;
+            }
+        }
+
+        cardNumberInput.addEventListener('input', validateInputs);
+        cvvInput.addEventListener('input', validateInputs);
+        otpInput.addEventListener('input', validateInputs);
+
+        confirmOrderButton.addEventListener('click', () => {
+            alert('Your order has been successfully placed!');
+            checkoutModal.style.display = 'none';
+            document.body.style.overflow = '';
+            localStorage.removeItem('cart');
+            displayCart();
+            resetModalInputs();
+
+        });
+
+        function resetModalInputs() {
+            cardNumberInput.value = '';
+            cvvInput.value = '';
+            otpInput.value = '';
+            confirmOrderButton.disabled = true;
+        }
+
+        document.addEventListener('DOMContentLoaded', displayCart);
+    </script>
+</body>
+</html>

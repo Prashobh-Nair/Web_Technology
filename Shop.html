@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - GreenLeaf Nursery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/shop.css">
+</head>
+<body>
+    <header>
+        <h1>Our Shop</h1>
+        <p>Discover a wide variety of plants and gardening essentials</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about-us/">About Us</a></li>
+            <li><a href="/cart/">Cart</a></li>
+            <li><a href="/contact-us/">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="https://nurserylive.com/cdn/shop/products/nurserylive-g-areca-palm-plant_512x512.jpg?v=1636456218" alt="Areca Palm">
+                <h3>Areca Palm</h3>
+                <p>Price: ₹299</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://buygreen.in/wp-content/uploads/2022/09/bird-nest-snake-plant.gif" alt="Snake Plant">
+                <h3>Snake Plant</h3>
+                <p>Price: ₹199</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://mainaamgarden.com/cdn/shop/products/6666_1024x1024.jpg?v=1638654564" alt="Peace Lily">
+                <h3>Peace Lily</h3>
+                <p>Price: ₹349</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+             <div class="product-item">
+                <img src="https://nurserylive.com/cdn/shop/products/nurserylive-g-plants-3-layer-lucky-bamboo-plant-in-a-bowl-with-pebbles-701159.jpg?v=1679748420" alt="Bamboo Plant">
+                <h3>Bamboo Plant</h3>
+                <p>Price: ₹249</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://theaffordableorganicstore.com/wp-content/uploads/2022/01/ZZ-Plant.webp" alt="ZZ Plant">
+                <h3>ZZ Plant</h3>
+                <p>Price: ₹399</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://plantzone.in/wp-content/uploads/2024/09/9-1.jpg" alt="Monstera Deliciosa">
+                <h3>Monstera Deliciosa</h3>
+                <p>Price: ₹449</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Gardening Essentials</h2>
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcT0lmjwn9p_MyEwSAS6pblvWTqTEhoBo_5TEBW5OafOyYLfIIEbHrWoGwIL4fxOqEK8-iNOXEIvNOiRvtSWG7u-NjkPm3P_43smkuYIAx0" alt="Terracotta Pot">
+                <h3>Terracotta Pot</h3>
+                <p>Price: ₹99</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSGEPOGYf2VxOL9raTN7H_PUa3pkvz0ixAsx27dbYPIlBBIE13vRBpEEniL7s50cI0okHRcvC1BDH6BjvqfNn_7b6YtGzUKCG1RlxjVmcYqMTIGGkNaTVBMtA" alt="Ceramic Pot">
+                <h3>Ceramic Pot</h3>
+                <p>Price: ₹149</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+            <div class="product-item">
+                <img src="https://iffcourbangardens.com/cdn/shop/files/Addasubheading_6.jpg?v=1688548125" alt="Premium Soil Mix">
+                <h3>Premium Soil Mix</h3>
+                <p>Price: ₹79/kg</p>
+                <button onclick="addToCart(this)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h3>Contact Us</h3>
+        <p>Email: support@greenleafnursery.com</p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Location: 123 Garden Road, Vadodara, Gujarat</p>
+        <p>&copy; 2025 GreenLeaf Nursery. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        console.log("Shop page loaded");
+
+        function addToCart(button) {
+            const productItem = button.parentNode;
+            const imgElement = productItem.querySelector('img');
+            const name = productItem.querySelector('h3').textContent;
+            const price = productItem.querySelector('p').textContent.split(': ')[1];
+            const imageUrl = imgElement.src;
+
+            let cart = localStorage.getItem('cart');
+            cart = cart ? JSON.parse(cart) : {};
+
+            if (cart[name]) {
+                cart[name].quantity += 1;
+            } else {
+                cart[name] = { quantity: 1, price: price, imageUrl: imageUrl };
+            }
+
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${name} added to cart!`); // Simple feedback
+        }
+    </script>
+</body>
+</html>
